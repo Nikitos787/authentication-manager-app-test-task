@@ -8,8 +8,8 @@ import project.authentication.manager.app.repository.specification.Specification
 
 @Component
 public class UserIsDeletedInSpecification implements SpecificationProvider<User> {
-    private static final String FIELD_NAME = "isDeleted";
-    private static final String FILTER = "isDeletedIn";
+    private static final String FIELD_NAME = "deleted";
+    private static final String FILTER = "deletedIn";
 
     @Override
     public Specification<User> getSpecification(String[] params) {
