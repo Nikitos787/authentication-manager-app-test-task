@@ -1,4 +1,4 @@
-# Test Task README
+# Authentication-manager-app
 
 >This app contains the solution for the test task from Inforce, 
 > which is a web application with user registration, login, and profile 
