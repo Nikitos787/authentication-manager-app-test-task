@@ -48,6 +48,12 @@ To get started with the test task solution, follow the instructions below:
 * Run the application.
 * Use this postman [collection](https://www.postman.com/supply-observer-16858482/workspace/for-people/collection/27238121-175578a9-c7f0-456b-bea6-4b635bb15ec1?action=share&creator=27238121) or swagger
 
+### Run with docker
+
+* Clone the repository.
+* run with command `docker-compose up`
+* Use this postman [collection](https://www.postman.com/supply-observer-16858482/workspace/for-people/collection/27238121-060e893c-17f3-4ab6-a40b-ed3f1060ed92?action=share&creator=27238121)
+
 > You can test the application using Swagger by accessing [http://localhost:8080/swagger-ui/index.html#](http://localhost:8080/swagger-ui/index.html#).
 
 > Additionally, you can use the provided Postman collection for local run or the Docker run. Just import the collection into your Postman and start testing the application.
