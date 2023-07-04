@@ -6,8 +6,8 @@ import project.authentication.manager.app.dto.response.UserResponseDto;
 import project.authentication.manager.app.model.User;
 
 @Mapper(config = MapperConfig.class)
-public interface PlayerMapper {
-    UserResponseDto toDto(User player);
+public interface UserMapper {
+    UserResponseDto toDto(User user);
 
     User toModel(UserRequestDto dto);
 }

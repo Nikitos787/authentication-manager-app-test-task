@@ -1,15 +1,20 @@
 package project.authentication.manager.app.service.impl;
 
 import java.util.List;
+import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import project.authentication.manager.app.model.RoleName;
 import project.authentication.manager.app.model.User;
 import project.authentication.manager.app.repository.UserRepository;
+import project.authentication.manager.app.repository.specification.UserSpecificationManager;
 import project.authentication.manager.app.service.UserService;
 
 @Service
@@ -17,6 +22,7 @@ import project.authentication.manager.app.service.UserService;
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    private final UserSpecificationManager userSpecificationManager;
 
     @Override
     public User save(User user) {
@@ -35,6 +41,22 @@ public class UserServiceImpl implements UserService {
         userFromDb.setLastName(user.getLastName());
         userFromDb.setRoles(user.getRoles());
         return userRepository.save(userFromDb);
+    }
+
+    @Override
+    public List<User> findAllByParams(Map<String, String> params) {
+        Specification<User> specification = null;
+        for (Map.Entry<String, String> entry : params.entrySet()) {
+            Specification<User> sp = userSpecificationManager.get(entry.getKey(),
+                    entry.getValue().split(","));
+            specification = specification == null ? Specification.where(sp) : specification.and(sp);
+        }
+        return userRepository.findAll(specification);
+    }
+
+    @Override
+    public Page<User> findAll(Pageable pageable) {
+        return userRepository.findAll(pageable);
     }
 
     @Override
@@ -58,5 +80,10 @@ public class UserServiceImpl implements UserService {
                         .stream()
                         .anyMatch(role -> role.getRoleName() == roleName))
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public void delete(Long id) {
+        userRepository.deleteById(id);
     }
 }
