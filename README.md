@@ -5,14 +5,14 @@
 > functionalities. The application is built using a web framework and 
 > uses a database to store user information. It also implements error handling and validation for user inputs.
 
-## Requirements
+## :mag: Requirements
 
 The application should have the following functionalities:
 1. **User registration**: Allow users to register by providing their name, email address, and password. Perform basic validation on the input fields.
 2. **User login**: Implement a login system to authenticate registered users. Use appropriate security measures to store and verify user credentials.
 3. **User profile**: Once logged in, users should be able to view and update their profile information, including their name and email address.
 
-## Technologies Used
+## :hammer: Technologies Used
 
 The test task solution utilizes the following technologies:
 
@@ -24,16 +24,21 @@ The test task solution utilizes the following technologies:
 - Lombok
 - Jjwt 0.9.1
 - Apache Maven 3.8.7
+- MapStruct
 - REST-assured
 - Testcontainers
 
-## Project Structure
+## [VIDEO PRESENTATION](https://www.youtube.com/watch?v=3PtqCYZRc84)
 
-The project follows a Three-Tier Architecture with the following layers:
+## :green_book: Project Structure
 
-- Presentation layer (Controllers): Accepts requests from clients and sends results back to them.
-- Application logic layer (Service): Provides logic to operate on the data sent to and from the DAO and the client.
-- Data access layer (Repository): Represents a bridge between the database and the application.
+> The project has a Three-Tier Architecture:
+
+| Layer                                 | Responsibilities                                                              | 
+|---------------------------------------|-------------------------------------------------------------------------------|
+| **Presentation layer (Controllers)**  | Accepts requests from clients and sends results back to them.                 |
+| **Application logic layer (Service)** | Provide logic to operate on the data sent to and from the DAO and the client. |
+| **Data access layer (Repository)**    | Represents a bridge between the database and the application.                 |
 
 ## Getting Started
 
@@ -59,5 +64,7 @@ To get started with the test task solution, follow the instructions below:
 > Additionally, you can use the provided Postman collection for local run or the Docker run. Just import the collection into your Postman and start testing the application.
 
 > Make sure to configure the necessary properties in `application.properties` for tests.
+
+> User can register/login/update own info. But user can find user by id or params or with sorting by field with pagination and counting. Also, Manager can update role in user
 
 **Good luck with your testing!**
