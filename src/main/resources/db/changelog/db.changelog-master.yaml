@@ -7,3 +7,5 @@ databaseChangeLog:
       file: /db/changelog/changes/create-users-roles-table.sql
   - include:
       file: /db/changelog/changes/create-role-in-db.sql
+  - include:
+      file: /db/changelog/changes/add-colomn-is-deleted-to-user-table.sql
